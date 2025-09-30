@@ -1,33 +1,32 @@
-class DebugCircle {
+public class DebugCircle implements JCircle {
     private int radius;
-    private int diameter;
-    private final double PI = 3.14159;
-    private double area;
 
-    DebugCircle(int r) {
-        radius = r;
-        diameter = 2 * r;
-        area = PI * r * r;
+    public DebugCircle(int c) {
+        this.radius = c;
     }
 
-    int getRadius() {
+    @Override
+    public int getRad() {
         return radius;
     }
 
-    int getDiameter() {
-        return diameter;
+    @Override
+    public int getDiam() {
+        return radius * 2;
     }
 
-    double getArea() {
-        return area;
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
-}
 
-class TestDebugCircle {
-    public static void main(String[] args) {
-        DebugCircle circle = new DebugCircle(5);
-        System.out.println("Radius: " + circle.getRadius());
-        System.out.println("Diameter: " + circle.getDiameter());
-        System.out.println("Area: " + circle.getArea());
+    @Override
+    public String getRadAsString() {
+        return String.valueOf(radius);
+    }
+
+    @Override
+    public String getDiamAsString() {
+        return String.valueOf(radius * 2);
     }
 }
